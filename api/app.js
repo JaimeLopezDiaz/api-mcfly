@@ -37,4 +37,4 @@ require('./routes/routes')(app);
 // start the server ======
 // =======================
 app.listen(config.PORT);
-console.log('Magic happens at http://localhost:' + config.PORT);
+console.log(`Magic happens at http://localhost: ${config.PORT}`);

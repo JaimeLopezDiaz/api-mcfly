@@ -17,7 +17,7 @@ exports.addNote = (req, res) => {
            console.log(err);
            return res.status(500).send({message: "Some error occurred while creating the Note."});
         }
-        res.json(`The note ${data} was created correctly`);
+        res.json("The note was created correctly");
     });
 };
 
@@ -53,7 +53,7 @@ exports.addFavouriteNote = (req, res) => {
     Note.findById(req.params.noteId, (err, note) => {
         if(err) {
             console.log(err);
-            if(err.kind === 'ObjectId') {
+            if(err.kind === "ObjectId") {
                 return res.status(404).send({message: `Note with id ${req.params.noteId} not found`});
             }
             return res.status(500).send({message: `Error finding note with id ${req.params.noteId}`});
@@ -67,7 +67,7 @@ exports.addFavouriteNote = (req, res) => {
 
         note.save((err, data) => {
             if(err) {
-                return res.status(500).send({message: "Could not update note with id " + req.params.noteId});
+                return res.status(500).send({message: `Could not update note with id ${req.params.noteId}`});
             }
             res.json(data);
         });
